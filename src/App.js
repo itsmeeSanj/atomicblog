@@ -11,7 +11,6 @@ function createRandomPost() {
 
 function App() {
   const { searchedPosts } = useContextData();
-
   const [isFakeDark, setIsFakeDark] = useState(false);
 
   // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
@@ -37,7 +36,6 @@ function App() {
       >
         {isFakeDark ? "☀️" : "🌙"}
       </button>
-
       <Header />
       <Main />
       <Archive ArchiveOption={ArchiveOption} />
@@ -78,14 +76,14 @@ function Results() {
   return <p>🚀 {searchedPosts.length} atomic posts found</p>;
 }
 
-function Main() {
+const Main = memo(function Main() {
   return (
     <main>
       <FormAddPost />
       <Posts />
     </main>
   );
-}
+});
 
 function Posts() {
   return (
