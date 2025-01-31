@@ -30,6 +30,7 @@ function PostContext({ children }) {
             .includes(searchQuery.toLowerCase())
         )
       : posts;
+
   const handleAddPost = useCallback(function handleAddPost(post) {
     setPosts((posts) => [post, ...posts]);
   }, []);
